@@ -10,6 +10,9 @@ function Home(){
 }
 
 const HomePage = styled.div`
+    background-color: #262626;
+  width: 100vw;
+  height: 100vh;
 `
 
 export default Home
