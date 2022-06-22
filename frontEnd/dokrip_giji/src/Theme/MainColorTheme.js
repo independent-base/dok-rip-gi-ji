@@ -1,6 +1,6 @@
-export const darkTheme = {
-  bgColor: "#262626",
-  textColor: "rgba(36,36,36,1)",
+export const MainTheme = {
+  bgColor: "#6C5CE7",
+  textColor: "#ef0f47",
   accentColor: "#ffdd59",
   cardBgColor: "#485460",
   boardColor: "RGB(231, 234, 239)",
@@ -17,7 +17,7 @@ export const darkTheme = {
   },
 };
 
-export const lightTheme: DefaultTheme = {
+export const lightTheme = {
   bgColor: "whitesmoke",
   textColor: "black",
   accentColor: "#9c88ff",
