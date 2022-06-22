@@ -8,12 +8,11 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import javax.persistence.*;
 import java.util.List;
 
-@EntityScan
-@Entity
-@Getter
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+
+
 public class User {
 
+    /*
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,7 +28,5 @@ public class User {
 
     @Column(columnDefinition = "json")
     private List<String> basePosition;
-
-
-
+    */
 }
