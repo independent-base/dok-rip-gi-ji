@@ -8,6 +8,7 @@ const Container = styled.div`
   height: 50px;
   background-color: ${(prop) => prop.theme.bgColor};
 `;
+
 const Logo = styled.div`
   display: flex;
   justify-content: center;
