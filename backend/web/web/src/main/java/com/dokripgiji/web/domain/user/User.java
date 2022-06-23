@@ -7,11 +7,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.*;
 
-@EntityScan
 @Entity
 @Getter
-@Setter
-@DynamicInsert
 @Table(name = "User")
 @NoArgsConstructor
 public class User {
