@@ -55,18 +55,26 @@ public class AddressController {
          */
     }
 
-
     //위에 코드가 너무 길어서 임의로 분리했는데, 완성되면 리팩토링하는 과정에서 적절한 위치에 넣어주면 될것 같습니다.
-    @GetMapping
-    public void AddressFilter(@RequestBody AddressRequestDto requestDto){
+    @GetMapping(value = "/inner")
+    public JSONArray AddressFilter(@RequestBody AddressRequestDto requestDto){
         JSONArray coordinates=mapboxService.MapboxFilter(requestDto);
 
-         int N=requestDto.getN();
-         requestDto.setN(N+5);
+        System.out.println("coordinates = " + coordinates);
+
+        return coordinates;
+    }
+
+    @GetMapping(value = "/outer")
+    public JSONArray AddressOuterFilter(@RequestBody AddressRequestDto requestDto){
+
+        int N=requestDto.getN();
+        requestDto.setN(N+5);
         JSONArray coordinatesAddFive=mapboxService.MapboxFilter(requestDto);
 
-        System.out.println("coordinates = " + coordinates);
         System.out.println("coordinatesAddFive = " + coordinatesAddFive);
+
+        return coordinatesAddFive;
     }
 
 }
