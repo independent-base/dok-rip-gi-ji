@@ -53,6 +53,7 @@ public class MapboxService {
 
             JSONObject features = (JSONObject) jObject.getJSONArray("features").get(0);
             JSONObject geometry = features.getJSONObject("geometry");
+//            System.out.println("geometry = " + geometry);
             coordinates = geometry.getJSONArray("coordinates");
 
         } catch (Exception e) {
