@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Map } from "react-kakao-maps-sdk";
+import SpotChoice from "./SpotChoice";
 
 const MapDiv = styled(Map)`
+  position: relative;
   width: 100vw;
   height: 80vh;
 `;
@@ -11,7 +13,7 @@ const P = styled.p`
   color: black;
 `;
 
-const MapPosition = () => {
+export default function MapPosition() {
   const [position, setPosition] = useState();
   return (
     <>
@@ -30,8 +32,7 @@ const MapPosition = () => {
         }
       />
       {position && <P>{`위도 : ${position.lat}경도 : ${position.lng}`}</P>}
+      <SpotChoice />
     </>
   );
-};
-
-export default MapPosition;
+}

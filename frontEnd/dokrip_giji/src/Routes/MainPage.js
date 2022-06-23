@@ -5,11 +5,15 @@ import Amenities from "../Components/Amenities";
 
 function MainPage() {
   return (
-    <>
+    <Container>
       <MapPosition />
       <Amenities />
-    </>
+    </Container>
   );
 }
 
 export default MainPage;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
