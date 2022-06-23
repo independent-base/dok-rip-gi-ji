@@ -46,13 +46,13 @@ public class MapboxService {
             br.close();
             System.out.println(response.toString());
 
-            JSONObject jObject = new JSONObject(response);
-            JSONObject features = jObject.getJSONObject("features");
-            JSONObject properties = jObject.getJSONObject("properties");
-
-            String fill = properties.getString("fill");
-
-            System.out.println("fill = " + fill);
+//            JSONObject jObject = new JSONObject(response);
+//            JSONObject features = jObject.getJSONObject("features");
+//            JSONObject properties = jObject.getJSONObject("properties");
+//
+//            String fill = properties.getString("fill");
+//
+//            System.out.println("fill = " + fill);
 
 
         } catch (Exception e) {
