@@ -6,12 +6,14 @@ import com.dokripgiji.web.domain.user.User;
 import com.dokripgiji.web.service.AddressService;
 import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/adr")
 public class AddressController {
@@ -50,10 +52,6 @@ public class AddressController {
     }
 
 
-    public AddressController(AddressService addressService, HttpServletRequest request) {
-        this.addressService = addressService;
-        this.request = request;
-    }
 }
 
 
