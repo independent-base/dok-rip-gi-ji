@@ -18,14 +18,9 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long addressId;
 
-    /*
     @ManyToOne(targetEntity = User.class) //단반향
     @JoinColumn(name = "userId", updatable = false)
-    private User user...
-     */
-
-    @Column(nullable = false)
-    private Long userId;
+    private User user;
 
     @Column(nullable = false)
     private Double longitude;
@@ -37,9 +32,9 @@ public class Address {
     private int n;
 
     @Builder
-    public Address(Long addressId, Long userId, Double longitude, Double latitude, int n) {
+    public Address(Long addressId, User user, Double longitude, Double latitude, int n) {
         this.addressId = addressId;
-        this.userId = userId;
+        this.user = user;
         this.longitude = longitude;
         this.latitude = latitude;
         this.n = n;

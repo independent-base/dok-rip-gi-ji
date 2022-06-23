@@ -18,8 +18,8 @@ public class convenientController {
     private final String url ="https://dapi.kakao.com/v2/local/search/category.json";
     private final String key = "9383895f69880f4da54c9c4b280df82d";
 
-    @GetMapping("/{userId}/convenients")
-    public Map callApi(@RequestParam String category_group_code, @RequestParam String x, @RequestParam String y, @RequestParam int radius){
+    @GetMapping("/convenient")
+    public Map callLocalApi(@RequestParam String category_group_code, @RequestParam String x, @RequestParam String y, @RequestParam int radius){
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("Authorization", "KakaoAK "+key);

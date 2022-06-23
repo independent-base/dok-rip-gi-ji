@@ -17,14 +17,9 @@ public class UserService {
 
     @Transactional
     public void signup(User user){
-        try {
 
-            if(userRepository.findByEmail(user.getEmail())==null){
-                userRepository.save(user);
-            }
-
-        }catch (Exception e){
-            e.printStackTrace();
+        if(userRepository.findByEmail(user.getEmail())==null){
+            userRepository.save(user);
         }
 
     }
