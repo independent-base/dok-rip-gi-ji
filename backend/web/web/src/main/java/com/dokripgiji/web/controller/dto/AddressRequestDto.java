@@ -7,16 +7,15 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class AddressRequestDto {
-    private Long id;
-    private String email;
-    private String address;
-    private Long addressNumber;
+
+    private Double longitude;
+    private Double latitude;
+    private int n;
 
     @Builder
-    public AddressRequestDto(String email, String address, Long addressNumber){
-        this.email = email;
-        this.address = address;
-        this.addressNumber = addressNumber;
+    public AddressRequestDto(Double longitude, Double latitude, int n) {
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.n = n;
     }
-
 }
