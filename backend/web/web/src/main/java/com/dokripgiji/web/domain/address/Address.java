@@ -1,8 +1,10 @@
 package com.dokripgiji.web.domain.address;
 
+import com.dokripgiji.web.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.*;
@@ -15,22 +17,33 @@ public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long addressId;
+
+    /*
+    @ManyToOne(targetEntity = User.class) //단반향
+    @JoinColumn(name = "userId", updatable = false)
+    private User user;
+
+     */
 
     @Column(nullable = false)
-    private String email;
+    private Long userId;
 
     @Column(nullable = false)
-    private String address;
+    private Double longitude;
 
     @Column(nullable = false)
-    private Long addressNumber;
+    private Double latitude;
+
+    @Column
+    private int n;
 
     @Builder
-    public Address(Long id, String email, String address, Long addressNumber) {
-        this.id = id;
-        this.email = email;
-        this.address = address;
-        this.addressNumber = addressNumber;
+    public Address(Long addressId, Long userId, Double longitude, Double latitude, int n) {
+        this.addressId = addressId;
+        this.userId = userId;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.n = n;
     }
 }
