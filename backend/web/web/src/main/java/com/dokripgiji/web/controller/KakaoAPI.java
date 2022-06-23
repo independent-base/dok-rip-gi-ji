@@ -7,6 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 
+import com.dokripgiji.web.domain.user.UserRepository;
 import com.dokripgiji.web.domain.user.User;
 import com.dokripgiji.web.service.UserService;
 import com.google.gson.JsonElement;
@@ -18,8 +19,6 @@ import org.springframework.stereotype.Controller;
 
 public class KakaoAPI {
 
-    @Autowired
-    private UserService userService;
 
     public String getAccessToken(String code) {
         String accessToken = "";

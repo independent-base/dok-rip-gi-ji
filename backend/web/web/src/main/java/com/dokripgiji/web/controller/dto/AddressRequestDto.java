@@ -13,7 +13,8 @@ public class AddressRequestDto {
     private Long addressNumber;
 
     @Builder
-    public AddressRequestDto(String address, Long addressNumber){
+    public AddressRequestDto(String email, String address, Long addressNumber){
+        this.email = email;
         this.address = address;
         this.addressNumber = addressNumber;
     }
