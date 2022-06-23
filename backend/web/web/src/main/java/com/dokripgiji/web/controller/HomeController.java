@@ -35,6 +35,8 @@ public class HomeController {
             session.setAttribute("userId", userInfo.get("email"));
             session.setAttribute("accessToken", accessToken);
 
+            System.out.println("session = " + session.getId());
+
             User user=User.builder().email((String) userInfo.get("email")).nickname((String) userInfo.get("nickname")).build();
             userService.signup(user);
         }
