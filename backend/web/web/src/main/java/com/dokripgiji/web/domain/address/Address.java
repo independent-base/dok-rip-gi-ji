@@ -27,7 +27,8 @@ public class Address {
     private Long addressNumber;
 
     @Builder
-    public Address(String email, String address, Long addressNumber) {
+    public Address(Long id, String email, String address, Long addressNumber) {
+        this.id = id;
         this.email = email;
         this.address = address;
         this.addressNumber = addressNumber;

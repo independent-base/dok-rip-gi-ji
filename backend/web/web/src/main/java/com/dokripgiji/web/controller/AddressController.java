@@ -16,8 +16,10 @@ public class AddressController {
 
     HttpServletRequest request;
 
-    @RequestMapping(value = "/adr", method = RequestMethod.POST)
-    public String update(@RequestBody AddressRequestDto requestDto){
+
+
+    @RequestMapping(value = "/{id}/adr", method = {RequestMethod.GET, RequestMethod.POST})
+    public String update(@RequestParam Long id, @RequestBody AddressRequestDto requestDto){
         String email = "choneybee@daum.net";
         addressService.saveAddress(requestDto, email);
         return "ok";

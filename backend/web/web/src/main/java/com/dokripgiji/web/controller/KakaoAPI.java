@@ -7,11 +7,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 
+import com.dokripgiji.web.domain.user.UserRepository;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 public class KakaoAPI {
+
+    UserRepository userRepository;
 
     public String getAccessToken(String code) {
         String accessToken = "";

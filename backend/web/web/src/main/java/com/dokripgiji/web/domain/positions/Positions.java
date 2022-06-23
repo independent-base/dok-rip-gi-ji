@@ -18,7 +18,7 @@ public class Positions {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column()
     private Long addressId;
 
     @Column
@@ -28,7 +28,7 @@ public class Positions {
     private Long latitude;
 
     @Builder
-    public Positions(Long addressId, Long longitude, Long latitude, String estimateZone, String convenientZone) {
+    public Positions(Long addressId, Long longitude, Long latitude) {
         this.addressId = addressId;
         this.longitude = longitude;
         this.latitude = latitude;
