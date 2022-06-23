@@ -76,7 +76,7 @@ public class KakaoAPI {
             URL url = new URL(reqUrl);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("POST");
-            conn.setRequestProperty("Authorization", "Bearer " + accessToken);
+            conn.setRequestProperty("Authorization", "Bearer "+accessToken);
             int responseCode = conn.getResponseCode();
             System.out.println("responseCode =" + responseCode);
 
@@ -88,7 +88,6 @@ public class KakaoAPI {
             while((line = br.readLine()) != null) {
                 result += line;
             }
-            System.out.println("response body ="+result);
 
             JSONObject jObject = new JSONObject(result);
             JSONObject kakaoAccount = jObject.getJSONObject("kakao_account");
@@ -98,11 +97,6 @@ public class KakaoAPI {
             String nickname = properties.getString("nickname");
 
             User user=User.builder().email(email).nickname(nickname).build();
-            System.out.println("user = " + user.getUserId());
-            System.out.println("user = " + user.getEmail());
-            System.out.println("user = " + user.getNickname());
-
-            System.out.println("user = " + user);
 
             userInfo.put("nickname", nickname);
             userInfo.put("email", email);
