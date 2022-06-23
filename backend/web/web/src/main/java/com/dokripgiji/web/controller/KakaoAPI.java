@@ -97,7 +97,7 @@ public class KakaoAPI {
             String nickname = properties.getString("nickname");
 
             User user=User.builder().email(email).nickname(nickname).build();
-            System.out.println("user = " + user.getId());
+            System.out.println("user = " + user.getUserId());
             System.out.println("user = " + user.getEmail());
             System.out.println("user = " + user.getNickname());
 

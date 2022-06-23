@@ -4,6 +4,7 @@ import com.dokripgiji.web.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.*;
@@ -16,11 +17,17 @@ public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long addressId;
 
+    /*
     @ManyToOne(targetEntity = User.class) //단반향
     @JoinColumn(name = "userId", updatable = false)
     private User user;
+
+     */
+
+    @Column(nullable = false)
+    private Long userId;
 
     @Column(nullable = false)
     private Double longitude;
@@ -32,9 +39,9 @@ public class Address {
     private int n;
 
     @Builder
-    public Address(Long id, User user, Double longitude, Double latitude, int n) {
-        this.id = id;
-        this.user = user;
+    public Address(Long addressId, Long userId, Double longitude, Double latitude, int n) {
+        this.addressId = addressId;
+        this.userId = userId;
         this.longitude = longitude;
         this.latitude = latitude;
         this.n = n;

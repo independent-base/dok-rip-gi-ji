@@ -8,12 +8,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AddressRequestDto {
 
+    private Long userId;
     private Double longitude;
     private Double latitude;
     private int n;
 
     @Builder
-    public AddressRequestDto(Double longitude, Double latitude, int n) {
+    public AddressRequestDto(Long userId, Double longitude, Double latitude, int n) {
+        this.userId = userId;
         this.longitude = longitude;
         this.latitude = latitude;
         this.n = n;
