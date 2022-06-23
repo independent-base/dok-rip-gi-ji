@@ -33,10 +33,10 @@ public class AddressService {
         Double latitude = requestDto.getLatitude();
         int n = requestDto.getN();
 
-        // User user = userRepository.getByUserId(requestDto.getUserId());
+        User user = userRepository.getByUserId(requestDto.getUserId());
 
         Address adr = Address.builder()
-                .userId(requestDto.getUserId())
+                .user(user)
                 .longitude(longitude)
                 .latitude(latitude)
                 .n(n)
