@@ -7,6 +7,7 @@ import com.dokripgiji.web.service.AddressService;
 import com.dokripgiji.web.service.MapboxService;
 import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
+import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
@@ -58,7 +59,8 @@ public class AddressController {
     //위에 코드가 너무 길어서 임의로 분리했는데, 완성되면 리팩토링하는 과정에서 적절한 위치에 넣어주면 될것 같습니다.
     @GetMapping
     public void AddressFilter(@RequestBody AddressRequestDto requestDto){
-        mapboxService.MapboxFilter(requestDto);
+        JSONArray coordinates=mapboxService.MapboxFilter(requestDto);
+        System.out.println("coordinates = " + coordinates);
     }
 
 
