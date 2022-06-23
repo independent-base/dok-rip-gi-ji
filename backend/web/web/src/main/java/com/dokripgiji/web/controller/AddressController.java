@@ -6,23 +6,27 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
-@RequiredArgsConstructor
 @RestController
+@RequestMapping("/adr")
 public class AddressController {
 
     private final AddressService addressService;
 
     HttpServletRequest request;
 
-    @RequestMapping(value = "/adr", method = RequestMethod.POST)
+    @PostMapping
     public String update(@RequestBody AddressRequestDto requestDto){
+        System.out.println("requestDto = " + requestDto);
         String email = "choneybee@daum.net";
         addressService.saveAddress(requestDto, email);
-        return "ok";
+        return "OK";
     }
 
+    public AddressController(AddressService addressService, HttpServletRequest request) {
+        this.addressService = addressService;
+        this.request = request;
+    }
 }
 
 
