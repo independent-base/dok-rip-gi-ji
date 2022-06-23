@@ -6,22 +6,28 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 
-function Amenities({ img, option }) {
+function Amenities({ list }) {
   return (
-    <>
+    <Container>
       <SAccordion>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography>업종 이미지</Typography>
+          <Typography>{list}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>옵션들</Typography>
         </AccordionDetails>
       </SAccordion>
-    </>
+    </Container>
   );
 }
 
 export default Amenities;
+
+const Container = styled.div`
+  display: flex;
+  //justify-content: center;
+  //align-items: center;
+`;
 
 const SAccordion = styled(Accordion)`
   && {
