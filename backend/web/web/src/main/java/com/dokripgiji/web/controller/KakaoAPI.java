@@ -7,11 +7,19 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 
+import com.dokripgiji.web.domain.user.User;
+import com.dokripgiji.web.service.UserService;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Controller;
 
 public class KakaoAPI {
+
+    @Autowired
+    private UserService userService;
 
     public String getAccessToken(String code) {
         String accessToken = "";
@@ -82,18 +90,23 @@ public class KakaoAPI {
             }
             System.out.println("response body ="+result);
 
-            JsonParser parser = new JsonParser();
-            JsonElement element =  parser.parse(result);
+            JSONObject jObject = new JSONObject(result);
+            JSONObject kakaoAccount = jObject.getJSONObject("kakao_account");
+            JSONObject properties = jObject.getJSONObject("properties");
 
-            JsonObject properties = element.getAsJsonObject().get("properties").getAsJsonObject();
-            JsonObject kakaoAccount = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
+            String email = kakaoAccount.getString("email");
+            String nickname = properties.getString("nickname");
 
-            String nickname = properties.getAsJsonObject().get("nickname").getAsString();
-            String email = kakaoAccount.getAsJsonObject().get("email").getAsString();
+            User user=User.builder().email(email).nickname(nickname).build();
+            System.out.println("user = " + user.getEmail());
+            System.out.println("user = " + user.getNickname());
+
+            System.out.println("user = " + user);
 
             userInfo.put("nickname", nickname);
             userInfo.put("email", email);
 
+            System.out.println("userInfo = " + userInfo);
 
         } catch (Exception e) {
             e.printStackTrace();
