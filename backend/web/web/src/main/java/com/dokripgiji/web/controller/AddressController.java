@@ -60,9 +60,14 @@ public class AddressController {
     @GetMapping
     public void AddressFilter(@RequestBody AddressRequestDto requestDto){
         JSONArray coordinates=mapboxService.MapboxFilter(requestDto);
-        System.out.println("coordinates = " + coordinates);
-    }
 
+         int N=requestDto.getN();
+         requestDto.setN(N+5);
+        JSONArray coordinatesAddFive=mapboxService.MapboxFilter(requestDto);
+
+        System.out.println("coordinates = " + coordinates);
+        System.out.println("coordinatesAddFive = " + coordinatesAddFive);
+    }
 
 }
 
