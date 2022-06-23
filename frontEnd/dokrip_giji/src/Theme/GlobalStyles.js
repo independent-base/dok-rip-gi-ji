@@ -2,6 +2,9 @@ import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
 const GlobalStyles = createGlobalStyle`
+	* { 
+	font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif !important;
+	}
     ${reset};
     a{
         text-decoration: none;
@@ -19,7 +22,6 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
     }
     body{
-        font-family: -apple--apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         font-size: 30px;
         background-color:RGB(245, 245, 245);
         color: white;
