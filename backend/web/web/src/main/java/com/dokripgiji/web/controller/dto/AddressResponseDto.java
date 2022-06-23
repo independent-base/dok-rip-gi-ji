@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AddressResponseDto {
 
-    private Long id;
+    private Long addressId;
     private Long userId;
     private Double longitude;
     private Double latitude;
@@ -18,10 +18,10 @@ public class AddressResponseDto {
 
     @Builder
     public AddressResponseDto(Address entity) {
-        this.id = id;
-        this.userId = userId;
-        this.longitude = longitude;
-        this.latitude = latitude;
-        this.n = n;
+        this.addressId = entity.getAddressId();
+        this.userId = entity.getUserId();
+        this.longitude = entity.getLongitude();
+        this.latitude = entity.getLatitude();
+        this.n = entity.getN();
     }
 }

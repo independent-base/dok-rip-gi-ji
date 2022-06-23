@@ -13,12 +13,12 @@ import javax.persistence.*;
 @Setter
 @DynamicInsert
 @Table(name = "User")
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long userId;
 
     @Column(length = 255, nullable = false)
     private String email;
@@ -27,7 +27,8 @@ public class User {
     private String nickname;
 
     @Builder
-    public User(String email, String nickname) {
+    public User(Long userId, String email, String nickname) {
+        this.userId = userId;
         this.email = email;
         this.nickname = nickname;
     }

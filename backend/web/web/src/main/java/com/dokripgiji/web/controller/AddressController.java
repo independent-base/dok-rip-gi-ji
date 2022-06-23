@@ -1,6 +1,7 @@
 package com.dokripgiji.web.controller;
 
 import com.dokripgiji.web.controller.dto.AddressRequestDto;
+import com.dokripgiji.web.controller.dto.AddressResponseDto;
 import com.dokripgiji.web.domain.user.User;
 import com.dokripgiji.web.service.AddressService;
 import lombok.RequiredArgsConstructor;
@@ -17,15 +18,19 @@ public class AddressController {
 
     private final AddressService addressService;
 
-    HttpServletRequest request;
-
     @PostMapping
-    public String update(@RequestBody AddressRequestDto requestDto){
+    public AddressResponseDto update(@RequestBody AddressRequestDto requestDto){
 
         System.out.println("requestDto = " + requestDto);
+        AddressResponseDto responseDto;
+        responseDto = addressService.saveAddress(requestDto);
+        System.out.println(responseDto.getAddressId());
+        return responseDto;
 
+        /*
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
+        /*
         if (principal!="anonymousUser"){
             User user=(User) principal;
             String email = (String) user.getEmail();
@@ -40,6 +45,8 @@ public class AddressController {
         }
 
         return "등록 실패";
+
+         */
     }
 
 
