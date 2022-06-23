@@ -2,6 +2,32 @@ import React from "react";
 import styled from "styled-components";
 import SearchBar from "./SearchBar";
 import Button from "@mui/material/Button";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { cursor } from "../Atoms/CursorAtom";
+
+function SpotChoice() {
+  const setCursor = useSetRecoilState(cursor);
+  // 커서 변경
+  const onClick = () => {
+    setCursor(true);
+  };
+  return (
+    <Container>
+      <Title>어느곳 근처를 찾아볼까요?</Title>
+      <Line />
+      <img />
+      <Btn variant="contained" onClick={onClick}>
+        직접 지도에서 위치 선택
+      </Btn>
+      <SearchBar />
+      <NextBtn>
+        <p>다음</p>
+      </NextBtn>
+    </Container>
+  );
+}
+
+export default SpotChoice;
 
 const Container = styled.div`
   position: absolute;
@@ -63,24 +89,3 @@ const NextBtn = styled(Button)`
     }
   }
 `;
-
-function SpotChoice() {
-  // 커서 변경
-  const onClick = () => {};
-  return (
-    <Container>
-      <Title>어느곳 근처를 찾아볼까요?</Title>
-      <Line />
-      <img />
-      <Btn variant="contained" onClick={onClick}>
-        직접 지도에서 위치 선택
-      </Btn>
-      <SearchBar />
-      <NextBtn>
-        <p>다음</p>
-      </NextBtn>
-    </Container>
-  );
-}
-
-export default SpotChoice;
