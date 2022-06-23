@@ -64,6 +64,7 @@ public class KakaoAPI {
         }catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println("accessToken = " + accessToken);
         return accessToken;
     }
 

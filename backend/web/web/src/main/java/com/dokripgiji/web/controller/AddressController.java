@@ -9,11 +9,15 @@ import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.net.http.HttpResponse;
 
 @RequiredArgsConstructor
 @RestController
@@ -57,16 +61,16 @@ public class AddressController {
 
     //위에 코드가 너무 길어서 임의로 분리했는데, 완성되면 리팩토링하는 과정에서 적절한 위치에 넣어주면 될것 같습니다.
     @GetMapping(value = "/inner")
-    public JSONArray AddressFilter(@RequestBody AddressRequestDto requestDto){
+    public String AddressFilter(@RequestBody AddressRequestDto requestDto){
         JSONArray coordinates=mapboxService.MapboxFilter(requestDto);
 
         System.out.println("coordinates = " + coordinates);
 
-        return coordinates;
+        return coordinates.toString();
     }
 
     @GetMapping(value = "/outer")
-    public JSONArray AddressOuterFilter(@RequestBody AddressRequestDto requestDto){
+    public String AddressOuterFilter(@RequestBody AddressRequestDto requestDto){
 
         int N=requestDto.getN();
         requestDto.setN(N+5);
@@ -74,7 +78,7 @@ public class AddressController {
 
         System.out.println("coordinatesAddFive = " + coordinatesAddFive);
 
-        return coordinatesAddFive;
+        return coordinatesAddFive.toString();
     }
 
 }
