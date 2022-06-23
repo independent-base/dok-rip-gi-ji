@@ -4,6 +4,7 @@ import SearchBar from "./SearchBar";
 import Button from "@mui/material/Button";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { cursor } from "../Atoms/CursorAtom";
+import { img } from "../Static/Select house-bro 1.svg";
 
 function SpotChoice() {
   const setCursor = useSetRecoilState(cursor);
@@ -35,7 +36,7 @@ const Container = styled.div`
   top: 40px;
   left: 40px;
   width: 340px;
-  height: 600px;
+  height: 500px;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -66,9 +67,10 @@ const Line = styled.div`
 const Btn = styled(Button)`
   && {
     width: 292px;
-    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>⌾</text></svg>")
-        16 0,
-      auto;
+    cursor: pointer;
+    //cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>⌾</text></svg>")
+    //    16 0,
+    //  auto;
   }
 `;
 
