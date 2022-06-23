@@ -21,8 +21,7 @@ public class Address {
     /*
     @ManyToOne(targetEntity = User.class) //단반향
     @JoinColumn(name = "userId", updatable = false)
-    private User user;
-
+    private User user...
      */
 
     @Column(nullable = false)
