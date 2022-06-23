@@ -6,10 +6,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
-@RequiredArgsConstructor
 @RestController
+@RequestMapping("/adr")
 public class AddressController {
 
     private final AddressService addressService;
@@ -17,14 +16,18 @@ public class AddressController {
     HttpServletRequest request;
 
 
-
-    @RequestMapping(value = "/{id}/adr", method = {RequestMethod.GET, RequestMethod.POST})
-    public String update(@RequestParam Long id, @RequestBody AddressRequestDto requestDto){
+    @PostMapping
+    public String update(@RequestBody AddressRequestDto requestDto){
+        System.out.println("requestDto = " + requestDto);
         String email = "choneybee@daum.net";
         addressService.saveAddress(requestDto, email);
-        return "ok";
+        return "OK";
     }
 
+    public AddressController(AddressService addressService, HttpServletRequest request) {
+        this.addressService = addressService;
+        this.request = request;
+    }
 }
 
 
