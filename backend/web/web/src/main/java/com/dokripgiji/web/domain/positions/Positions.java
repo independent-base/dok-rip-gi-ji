@@ -2,6 +2,7 @@ package com.dokripgiji.web.domain.positions;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.*;
@@ -10,18 +11,15 @@ import java.util.List;
 @EntityScan
 @Entity
 @Getter
+@NoArgsConstructor
 public class Positions {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    private Long user_id;
-
-    @Column(nullable = false)
-    private String address;
+    @Column()
+    private Long addressId;
 
     @Column
     private Long longitude;
@@ -29,18 +27,10 @@ public class Positions {
     @Column
     private Long latitude;
 
-    @Column(columnDefinition = "json")
-    private String estimateZone;
-
-    @Column(columnDefinition = "json")
-    private String convenientZone;
-
     @Builder
-    public Positions(String address, Long longitude, Long latitude, String estimateZone, String convenientZone) {
-        this.address = address;
+    public Positions(Long addressId, Long longitude, Long latitude) {
+        this.addressId = addressId;
         this.longitude = longitude;
         this.latitude = latitude;
-        this.estimateZone = estimateZone;
-        this.convenientZone = convenientZone;
     }
 }

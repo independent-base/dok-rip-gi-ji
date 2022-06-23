@@ -4,6 +4,10 @@ import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
 
+import com.dokripgiji.web.domain.user.User;
+import com.dokripgiji.web.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class HomeController {
+
+    @Autowired
+    private UserService userService;
 
     KakaoAPI kakaoApi = new KakaoAPI();
 
@@ -27,9 +34,15 @@ public class HomeController {
         if(userInfo.get("email") != null) {
             session.setAttribute("userId", userInfo.get("email"));
             session.setAttribute("accessToken", accessToken);
+
+            System.out.println("session = " + session.getId());
+
+            User user=User.builder().email((String) userInfo.get("email")).nickname((String) userInfo.get("nickname")).build();
+            userService.signup(user);
         }
         mav.addObject("userId", userInfo.get("email"));
         mav.setViewName("index");
+        System.out.println("mav = " + mav);
         return mav;
     }
 
