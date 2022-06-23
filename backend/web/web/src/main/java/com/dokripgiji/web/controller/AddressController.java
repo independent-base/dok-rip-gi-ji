@@ -15,7 +15,6 @@ public class AddressController {
 
     HttpServletRequest request;
 
-
     @PostMapping
     public String update(@RequestBody AddressRequestDto requestDto){
         System.out.println("requestDto = " + requestDto);
@@ -23,6 +22,7 @@ public class AddressController {
         addressService.saveAddress(requestDto, email);
         return "OK";
     }
+
 
     public AddressController(AddressService addressService, HttpServletRequest request) {
         this.addressService = addressService;
