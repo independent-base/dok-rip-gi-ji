@@ -10,13 +10,13 @@
 
 **독립기지**는 사용자의 생활패턴을 중심으로 부동산을 탐색할 수 있는 웹 서비스입니다. **사용자의 생활 거점(회사, 학교 등)** 을 중심으로, 단순 직선거리가 아닌 보행시간을 고려하여 후보지를 함께 찾아줍니다.
 
-<table margin: auto>
+<table>
 	<tr>
 		<td width=50%>
-			<a href="#"><img src=""></a>
+			<a href="https://youtu.be/HpKZQ1A_JKo"><img src="images/youtube.png"></a>
 		</td>
 		<td width=50%>
-			<a href="#"><img src="images/presentation.PNG"></a>
+			<a href="https://github.com/independent-base/dok-rip-gi-ji/blob/master/docs/%EC%86%8C%EC%A4%91%EB%8C%80%20%EB%B3%B5%EB%8D%95%EB%B0%A9_%EB%8F%85%EB%A6%BD%EA%B8%B0%EC%A7%80_%EC%B5%9C%EC%A2%85%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8.pdf"><img src="images/presentation.png"></a>
 		</td>
 	</tr>
 	<tr>
@@ -29,6 +29,12 @@
 	</tr>
 </table>
 
+## 🎨 디자인 시안 (Sample Design)
+
+> 이미지를 클릭할 시 Figma로 이동합니다.
+
+[![22SWUNIV_HACK_dok-rip-gi-ji-figma](images/design.png)](https://www.figma.com/file/tgMFiFB5zgT0frYzB05APl/%EB%8F%85%EB%A6%BD%EA%B8%B0%EC%A7%80-('22%EC%86%8C%EC%A4%91%EB%8C%80-%EA%B3%B5%EB%8F%99%ED%95%B4%EC%BB%A4%ED%86%A4)?node-id=0%3A1)
+
 ## 🔧 기술 스택 (Technique Used)
 ### Server(back-end)
  - Spring Boot
@@ -37,9 +43,14 @@
  -  React.js
  -  MUI(MATERIAL DESIGN)
 
+## ⚙ 주요 사용 API (Major External Services)
+ - Kakao 지도 API [🔗](https://apis.map.kakao.com/)
+ - Kakao oauth API [🔗](https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api)
+ - Mapbox Isochrone API (보행시간) [🔗](https://docs.mapbox.com/playground/isochrone/)
+
 ## 👨‍💻 팀 정보 (Team Information)
 
-<table margin: auto>
+<table>
 <tbody align="center">
   <tr>
     <td width="20%"><img src="https://avatars.githubusercontent.com/u/45625362?v=3" width="100px;" alt=""/></td>
